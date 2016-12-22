@@ -21,7 +21,7 @@ describe('LearnJS', function() {
 		expect(learnjs.showView).toHaveBeenCalledWith(window.location.hash);
 	});
 
-	if('subscribes to the hash change event', function() {
+	it('subscribes to the hash change event', function() {
 		learnjs.appOnReady();
 		spyOn(learnjs, 'showView');
 		$(window).trigger('hashchange');
