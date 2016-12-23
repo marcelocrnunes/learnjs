@@ -3,13 +3,18 @@ var learnjs = [];
 
 learnjs.showView = function(hash) {
 	var routes = {
-		'#problem': learnjs.problemView
+		'#problem': learnjs.problemView,
+		'': learnjs.landingView
 	};
 	var hashParts = hash.split('-');
 	var viewFn = routes[hashParts[0]];
 	if (viewFn) {
 		$('.view-container').empty().append(viewFn(hashParts[1]));
 	}
+}
+
+learnjs.landingView = function() {
+	return learnjs.template('landing-view');
 }
 
 learnjs.appOnReady = function() {
