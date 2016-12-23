@@ -1,4 +1,8 @@
 describe('LearnJS', function() {
+	beforeEach(function() {
+		learnjs.identity = new $.Deferred();
+	});
+
 	it('can show a problem view', function() {
 		learnjs.showView('#problem-1');
 		expect($('.view-container .problem-view').length).toEqual(1);
@@ -18,6 +22,12 @@ describe('LearnJS', function() {
 		spyOn(learnjs, 'problemView');
 		learnjs.showView('#problem-42');
 		expect(learnjs.problemView).toHaveBeenCalledWith('42');
+	});
+
+	it('triggers removingView event when removing the view', function() {
+		spyOn(learnjs, 'triggerEvent');
+		learnjs.showView('#problem-1');
+		expect(learnjs.triggerEvent).toHaveBeenCalledWith('removingView', []);
 	});
 	
 	it('invokes the router when loaded', function() {

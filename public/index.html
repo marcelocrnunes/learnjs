@@ -33,11 +33,18 @@
 			.hover-links a { text-decoration: none }
 			.hover-links a:hover { text-decoration: underline; }
 			.nav-container {
+				padding-bottom: 3px;
 				padding-left: 40px;
 				background: #666;
 			}
 			.nav-container a { color: white; }
+			.navbar-padding {
+				padding-top: 2x;
+				display: inline-block;
+			}
 		</style>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="41971664695-22kpj7uodh912vdpvc4ks169up0tvqbh.apps.googleusercontent.com"/>
 	</head>
 	<body>
 		<div class='markup'>
@@ -46,6 +53,11 @@
 					<li><a class='text-lg' href="#">LearnJS</a></li>
 					<li><a href="#problem-1">Start</a></li>
 				</ul>
+				<div class='four columns'>
+					<span class='navbar-padding u-pull-right'>
+						<span class="g-signin2" data-onsuccess="googleSignIn"></span>
+					</span>
+				</div>
 			</div>
 			<div class='view-container container'>
 			</div>
